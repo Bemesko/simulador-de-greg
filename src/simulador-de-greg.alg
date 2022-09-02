@@ -1,4 +1,4 @@
-Algoritmo "Simulador de Greg 1.0"
+Algoritmo "Simulador de Greg 1.1"
 // Disciplina   :  [Linguagem e Lógica de Programação]
 // Professor   : Antonio Carlos Nicolodi
 // Descrição   : Aqui você descreve o que o programa faz! (função)
@@ -6,11 +6,12 @@ Algoritmo "Simulador de Greg 1.0"
 // Data atual  : 05/06/2018
 Var
    entrada,resposta, pontos, final:caractere
-   NumeroAleatorio,vidaUsuario, vidaBe, forca, carisma: inteiro
+   Bmorto,NumeroAleatorio,vidaUsuario, vidaBe, forca, carisma, Gcoin, Ponto: inteiro
 Inicio
    //Bem-vindo
-
-
+      Bmorto <- 0
+      Ponto<- 0
+      Gcoin<- 0
       vidaUsuario <- 10
       vidaBe <- 10
       forca<- 2
@@ -63,7 +64,7 @@ caso("1")
             fimescolha
          ate(vidaBe <= 0)
          se(vidaBe = 0)entao
-            NumeroAleatorio <- RandI(2);
+            NumeroAleatorio <- RandI(3);
             se(NumeroAleatorio=0)entao
                escreval("Você socou tanto o Bernardo que ele 'desmaiou' e caiu no chão")
             fimse
@@ -73,13 +74,30 @@ caso("1")
             se(NumeroAleatorio=2)entao
                escreval("bernardo ao levar seu soco, fica tonto, escorrega e cai no chão com força e desmaia")
             fimse
-
-final <- "Impactada"
-         fimse
+            Se(NumeroAleatorio=3)entao
+               escreval("'FATALITY'")
+               fimse
+               limpatela
+               escreval("Você derrotou o bernardo, +1 ponto")
+                    escreval("Bernardo está desmaiado no chão, o que você faz? ")
+                    escreval("(1) Rouba ele.(2) Deixa ele lá")
+                    Ponto <- Ponto + 1
+                    Bmorto <- Bmorto + 1
+             leia(resposta)
+      escolha(resposta)
+      caso("1")
+               escreval("Você pilha o seu 'oponente' desmaiado e pega 1 Gcoins")
+               Gcoin <- Gcoin + 1
+      caso("2")
+               escreval("Voce deixa bernardo no chão)
+            final <- "Impactada"
+         fimescolha
 caso("2")
+         se(Bmorto<1)entao
          escreval("Bernardo: E aí, Greg! Como tá a família?")
          escreval("Greg: Vai bem.")
          final <- "'Family Friendly'"
+         fimse
          fimescolha
 //caso("3")
 //         se()
@@ -111,5 +129,13 @@ fimenquanto
           escreval("para treinar você gasta um ponto - você tem ",pontos)
           escreval("")
           escreval("o que você deseja treinar")
-          escreval("(1)forca (2)carisma (3)nada")
+          escreval("(1)forca (2)carisma (3)estudar (4)descansar (5)nada")
+          leia(resposta)
+           escolha(resposta)
+          Caso("1")
+         escreval("Você precisa comprar equipamentos antes de começar")
+  
+         caso("2")
+         escreval("voce fica conversando consigo mesmo na frente do espelho, os outros acham estranho mas a  sua auto-confiança aumenta. +1 Carisma")
+         fimescolha
 Fimalgoritmo
