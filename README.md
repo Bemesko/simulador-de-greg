@@ -24,7 +24,7 @@ fpc -osimulador-de-greg src/simulador-de-greg.pas
 src/simulador-de-greg
 ```
 
-## Portugol
+### Portugol
 
 1. Abra o arquivo src/simulador-de-greg.alg no Visualg
 2. Só clicar em executar, não tem muito segredo
